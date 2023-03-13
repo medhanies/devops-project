@@ -28,7 +28,7 @@ pipeline {
     }
     stage('apply') {
       steps {
-        sh 'terraform apply -auto-approve -no-color var-file="file.txt"'
+        sh 'terraform apply -auto-approve -no-color'
       }
     }
     stage('ec2 wait') {
