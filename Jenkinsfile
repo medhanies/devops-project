@@ -28,7 +28,7 @@ pipeline {
     }
     stage('apply') {
       steps {
-        sh 'terraform apply -auto-approve -no-color'
+        sh 'terraform apply -auto-approve -no-color var-file="file.txt"'
       }
     }
     stage('ec2 wait') {
@@ -63,6 +63,14 @@ pipeline {
       steps {
         sh 'terraform destroy -auto-approve -no-color'
       }
+    }
+  }
+  post {
+    success {
+      echo 'success'
+    }
+    failure {
+      echo 'terraform destroy -auto-approve -no-color'
     }
   }
 }
