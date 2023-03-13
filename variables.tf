@@ -15,7 +15,7 @@ variable "cloud9_ip" {
 
 variable "main_instance_type" {
   type    = string
-  default = "t2.micro"
+  default = "t2.medium"
 }
 
 variable "main_vol_size" {
