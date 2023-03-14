@@ -78,5 +78,5 @@ output "instance_ips" {
 }
 
 output "instance_ids" {
-  value = [for i in aws_instance.mtc_main[*]: i.id]
+  value = [for i in aws_instance.my_main[*]: i.id]
 }
