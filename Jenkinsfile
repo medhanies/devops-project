@@ -68,6 +68,11 @@ pipeline {
         ansiblePlaybook(credentialsId: 'ec2-ssh-key', inventory: 'aws_hosts', playbook: 'playbooks/main-playbook.yml')
       }
     }
+    stage('Test Grafana and Prometheus') {
+      steps {
+        ansiblePlaybook(credentialsId: 'ec2-ssh-key', inventory: 'aws_hosts', playbook: 'playbooks/node-test.yml') 
+      }
+    }
     stage('validate Destory') {
       input {
         message "do you want to destroy everything?"
